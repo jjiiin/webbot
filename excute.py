@@ -9,18 +9,27 @@ from scrap_history import *
 from scrap_korean import *
 from scrap_software import *
 from scrap_security import *
-scraping_no1()
-scraping_no2()
-scraping_no3()
-scraping_no4()
-scraping_no5()
-scraping_biz()
-#scraping_dm()
-scraping_history()
-scraping_korean()
-scraping_security()
-scraping_software()
 
+import schedule
+import time
+def keyword_scraping():
+    scraping_no1()
+    scraping_no2()
+    scraping_no3()
+    scraping_no4()
+    scraping_no5()
+    scraping_biz()
+    #scraping_dm()
+    scraping_history()
+    scraping_korean()
+    scraping_security()
+    scraping_software()
+
+
+schedule.every(1).minutes.do(keyword_scraping)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 #학과별 공지사항 업데이트 해야함.
 # from fb_read import *
 # import sqlite3
