@@ -29,7 +29,7 @@ def keyword_scraping():
 schedule.every(1).minutes.do(keyword_scraping)
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(0.5)
 #학과별 공지사항 업데이트 해야함.
 # from fb_read import *
 # import sqlite3
