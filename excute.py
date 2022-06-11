@@ -13,23 +13,27 @@ from scrap_security import *
 import schedule
 import time
 def keyword_scraping():
-    scraping_no1()
-    scraping_no2()
-    scraping_no3()
-    scraping_no4()
-    scraping_no5()
-    scraping_biz()
-    #scraping_dm()
-    scraping_history()
-    scraping_korean()
-    scraping_security()
-    scraping_software()
+    try:
+        scraping_no1()
+        scraping_no2()
+        scraping_no3()
+        scraping_no4()
+        scraping_no5()
+        scraping_biz()
+        #scraping_dm()
+        scraping_history()
+        scraping_korean()
+        scraping_security()
+        scraping_software()
+    except Exception as ex:
+        print('에러가 발생했습니다.',ex)
+
 
 
 schedule.every(1).minutes.do(keyword_scraping)
 while True:
     schedule.run_pending()
-    time.sleep(0.5)
+    time.sleep(1)
 #학과별 공지사항 업데이트 해야함.
 # from fb_read import *
 # import sqlite3
