@@ -43,7 +43,7 @@ def scraping_history():
                 contents=contentExtraction(link)
                 #키워드 리스트랑 비교해서 푸쉬알림 보내기
                 content=title+contents
-                #pushNotification(content,link,dept_kr,deptNum)
+                pushNotification(content,link,dept_kr,deptNum)
                 if cnt==1:
                     title_update=title
                     print("title_update_cnt"+title_update)

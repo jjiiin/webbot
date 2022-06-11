@@ -43,7 +43,7 @@ def scraping_no1():
                 contents_tmp=contentExtraction(link)
                 #키워드 리스트랑 비교해서 푸쉬알림 보내기
                 content=title+contents_tmp
-                #pushNotification(content,link,dept_kr,0)
+                pushNotification(content,link,dept_kr,0)
                 if(cnt==1):
                     title_update=title
                 print(cnt)

@@ -1,5 +1,5 @@
 import pyrebase
-from firebase_admin import credentials
+
 from firebase_admin import db
 from push_fcm_notification import *
 import time
@@ -15,10 +15,7 @@ firebaseConfig = {
     "measurementId": "G-D3J218FJBZ"
 }
 firebase =pyrebase.initialize_app(firebaseConfig)
-# cred = credentials.Certificate('./serviceAccountKey.json')
-# firebase=firebase_admin.initialize_app(cred,{
-#     'databaseURL': 'https://swprojectapp-default-rtdb.firebaseio.com'
-# })
+
 
 db=firebase.database()
 auth=firebase.auth()

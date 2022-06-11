@@ -30,7 +30,7 @@ def keyword_scraping():
 
 
 
-schedule.every(1).minutes.do(keyword_scraping)
+schedule.every(1).seconds.do(keyword_scraping)
 while True:
     schedule.run_pending()
     time.sleep(1)
@@ -43,7 +43,7 @@ while True:
 # #test()
 # cursor.execute(
 #     f'UPDATE myapp_recent_ann SET title = ? WHERE dept = ?',
-#     ('[SW교육혁신센터] 2022년 1학기 코딩 알고리즘 경진대회 개최 안내 (~06/08까지)','digitalmedia'
+#     ('2022학년도 1학기 성적조회기간 및 성적이의신청기간 안내(시간변경)','main_1'
 #     )
 # )
 # conn.commit()
