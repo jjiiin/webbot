@@ -30,10 +30,15 @@ def keyword_scraping():
 
 
 
-schedule.every(1).seconds.do(keyword_scraping)
+schedule.every(1).minutes.do(keyword_scraping)
 while True:
     schedule.run_pending()
+    now = time.localtime()
+    print("******************************************")
+    print("%04d/%02d/%02d %02d:%02d:%02d" % (now.tm_year, now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec))
+    print("******************************************")
     time.sleep(1)
+
 #학과별 공지사항 업데이트 해야함.
 # from fb_read import *
 # import sqlite3
