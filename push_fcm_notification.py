@@ -1,4 +1,3 @@
-
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import messaging
@@ -26,6 +25,6 @@ def send_to_firebase_cloud_messaging(dept,keyword,token_,link_):
         "title":f'SWUTICE-{dept}'
     }
     response = messaging.send(message)
-    #response=push_service.single_device_data_message(registration_id=token_,data_message=data_message_)
+    response=push_service.single_device_data_message(registration_id=token_,data_message=data_message_)
     # Response is a message ID string.
     print('Successfully sent message:', response)

@@ -1,5 +1,4 @@
 import pyrebase
-
 from firebase_admin import db
 from push_fcm_notification import *
 import time
