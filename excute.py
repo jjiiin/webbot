@@ -14,16 +14,17 @@ import schedule
 import time
 def keyword_scraping():
     try:
-        #scraping_no2()
-        # scraping_korean()
+        scraping_no1()
+        scraping_no2()
+        scraping_korean()
         scraping_security()      
-        # scraping_no3()
-        # scraping_no4()
-        # scraping_no5()
-        # scraping_biz()
+        scraping_no3()
+        scraping_no4()
+        scraping_no5()
+        scraping_biz()
         # #scraping_dm()
-        # scraping_history()
-        # scraping_software()
+        scraping_history()
+        scraping_software()
         #scraping_no1()
     except Exception as ex:
         print('에러가 발생했습니다.',ex)
