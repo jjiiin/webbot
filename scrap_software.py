@@ -33,6 +33,11 @@ def scraping_software():
             #sqlite에 저장된 공지(제목)과 크롤링해온 제목 비교하기
         if title_before != title_:
             cnt+=1
+            if title_before in title_:
+                print("제목 변경"+title_)
+                updateDB(title_,dept)
+                count+=1
+                break
             print("cnt"+str(cnt))
             find_link=str(temp[1].a.attrs["href"])
             link="http://swuswc.cafe24.com/"+find_link
@@ -55,7 +60,8 @@ def scraping_software():
                 updateDB(title_update,dept)
                 count+=1
             break
-    
+    else:
+        updateDB(title_update,dept)
 
 def contentExtraction(link):
     headers={

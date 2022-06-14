@@ -36,6 +36,11 @@ def scraping_no2():
             print("title "+title)
             if(title_before!=title):
                 cnt+=1
+                if title_before in title:
+                    print("제목 변경"+title)
+                    updateDB(title,dept)
+                    count+=1
+                    break
                 find_link=temp[1].a.attrs["onclick"].split("'")
                 frag_link=str(find_link[3])
                 link="http://www.swu.ac.kr/front/boardview.do?&pkid=" + frag_link +"&currentPage=1&menuGubun=1&siteGubun=1&bbsConfigFK=4&searchField=ALL&searchValue=&searchLowItem=ALL"
@@ -56,7 +61,8 @@ def scraping_no2():
                     updateDB(title_update,dept)
                     count+=1
                 break
-    
+    else:
+        updateDB(title_update,dept)
 
 def contentExtraction(link):
     headers={

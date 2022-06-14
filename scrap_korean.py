@@ -23,6 +23,7 @@ def scraping_korean():
     title_before=titleGetDB(dept)[0].replace(" ","")
     cnt=0
     count=0
+    title_first=""
     title_update=""
     for index, value in enumerate(announcements):
         temp=value.find_all("td")
@@ -37,6 +38,11 @@ def scraping_korean():
             #sqlite에 저장된 공지(제목)과 크롤링해온 제목 비교하기
             if title_before != title_:
                 cnt+=1
+                if title_before in title_:
+                    print("제목 변경"+title_)
+                    updateDB(title_,dept)
+                    count+=1
+                    break
                 print("cnt"+str(cnt))
                 find_link=str(temp[1].a.attrs["value"])
                 link="http://korean.swu.ac.kr/bbs/bbs/view.php?bbs_no=5&data_no="+find_link+"&page_no=1&sub_id="
@@ -57,6 +63,9 @@ def scraping_korean():
                     updateDB(title_update,dept)
                     count+=1
                 break
+    else:
+        updateDB(title_update,dept)
+
     
 
 def contentExtraction(link):

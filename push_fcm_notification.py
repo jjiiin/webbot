@@ -21,10 +21,10 @@ def send_to_firebase_cloud_messaging(dept,keyword,token_,link_):
         token=registration_token,
     )
     data_message_={
-        "body":f'\"{keyword}\"키워드가 포함된 공지사항이 등록됐습니다.',
+        "body":f'\"{keyword}\"키워드가 포함된 공지사항이 등록됐습니다~~~',
         "title":f'SWUTICE-{dept}'
     }
     response = messaging.send(message)
-    response=push_service.single_device_data_message(registration_id=token_,data_message=data_message_)
+    #response=push_service.single_device_data_message(registration_id=token_,data_message=data_message_)
     # Response is a message ID string.
     print('Successfully sent message:', response)

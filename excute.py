@@ -14,23 +14,23 @@ import schedule
 import time
 def keyword_scraping():
     try:
-        scraping_no1()
-        scraping_no2()
-        scraping_no3()
-        scraping_no4()
-        scraping_no5()
-        scraping_biz()
-        #scraping_dm()
-        scraping_history()
-        scraping_korean()
-        scraping_security()
-        scraping_software()
+        #scraping_no2()
+        # scraping_korean()
+        scraping_security()      
+        # scraping_no3()
+        # scraping_no4()
+        # scraping_no5()
+        # scraping_biz()
+        # #scraping_dm()
+        # scraping_history()
+        # scraping_software()
+        #scraping_no1()
     except Exception as ex:
         print('에러가 발생했습니다.',ex)
 
 
 
-schedule.every(1).minutes.do(keyword_scraping)
+schedule.every(1).seconds.do(keyword_scraping)
 while True:
     schedule.run_pending()
     now = time.localtime()
@@ -39,7 +39,7 @@ while True:
     print("******************************************")
     time.sleep(1)
 
-#학과별 공지사항 업데이트 해야함.
+# #학과별 공지사항 업데이트 해야함.
 # from fb_read import *
 # import sqlite3
 # conn=sqlite3.connect("myapp_recent_ann.db")
@@ -48,7 +48,7 @@ while True:
 # #test()
 # cursor.execute(
 #     f'UPDATE myapp_recent_ann SET title = ? WHERE dept = ?',
-#     ('2022학년도 1학기 성적조회기간 및 성적이의신청기간 안내(시간변경)','main_1'
+#     ('[정보보호특성화사업단]2022기업현장실습참여기업안내','security'
 #     )
 # )
 # conn.commit()

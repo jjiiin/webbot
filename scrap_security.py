@@ -37,13 +37,18 @@ def scraping_security():
             #sqlite에 저장된 공지(제목)과 크롤링해온 제목 비교하기
             if title_before != title_:
                 cnt+=1
+                if title_before in title_:
+                    print("제목 변경"+title_)
+                    updateDB(title_,dept)
+                    count+=1
+                    break
                 print("cnt"+str(cnt))
                 find_link=temp[1].a.attrs["href"]
                 link="http://security.swu.ac.kr/"+find_link
                 contents=contentExtraction(link)
                 #키워드 리스트랑 비교해서 푸쉬알림 보내기
                 content=title+contents
-                pushNotification(content,link,dept_kr,deptNum)
+                # pushNotification(content,link,dept_kr,deptNum)
                 if cnt==1:
                     title_update=title
                     print("title_update_cnt"+title_update)
@@ -57,7 +62,8 @@ def scraping_security():
                     updateDB(title_update,dept)
                     count+=1
                 break
-    
+    else:
+        updateDB(title_update,dept)
 
 def contentExtraction(link):
     headers={
